@@ -13,7 +13,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { Paper } from '@material-ui/core';
-
+import logo from '../images/1280px-Spotify_logo_with_text.svg.png'
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
             width: `calc(100% - ${drawerWidth}px)`,
             marginLeft: drawerWidth,
         },
+
         drawer: {
             width: drawerWidth,
             flexShrink: 0,
@@ -32,6 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerPaper: {
             width: drawerWidth,
         },
+
         // necessary for content to be below app bar
         toolbar: theme.mixins.toolbar,
         content: {
@@ -65,6 +67,7 @@ export default function PermanentDrawerLeft() {
                 style={{maxHeight: 200, overflow: 'auto'}}
             >
                 <div className={classes.toolbar} />
+                <img style={{maxHeight: 80,backgroundColor:'black',maxWidth: 240,padding:8,marginTop:-68, overflow: 'auto'}} src={logo} alt="Logo" className="photo"/>
                 <Divider />
                 <Paper style={{maxHeight: 200, overflow: 'auto'}}>
 
