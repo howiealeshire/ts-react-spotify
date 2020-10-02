@@ -12,7 +12,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import { Paper } from '@material-ui/core';
+import {Box, Paper} from '@material-ui/core';
 import logo from '../images/1280px-Spotify_logo_with_text.svg.png'
 const drawerWidth = 240;
 
@@ -33,9 +33,12 @@ const useStyles = makeStyles((theme: Theme) =>
         drawerPaper: {
             width: drawerWidth,
         },
+        button: {
+            height: 12,
+        },
 
         // necessary for content to be below app bar
-        toolbar: theme.mixins.toolbar,
+        //toolbar: theme.mixins.toolbar,
         content: {
             flexGrow: 1,
             backgroundColor: theme.palette.background.default,
@@ -66,34 +69,57 @@ export default function PermanentDrawerLeft() {
                 anchor="left"
                 style={{maxHeight: 200, overflow: 'auto'}}
             >
-                <div className={classes.toolbar} />
-                <img style={{maxHeight: 80,backgroundColor:'black',maxWidth: 240,padding:8,marginTop:-68, overflow: 'auto'}} src={logo} alt="Logo" className="photo"/>
+                <Box display="flex" flexDirection="column">
+                <div className={classes.root} />
+                <img style={{height: 70,backgroundColor:'black',maxWidth: 240,padding:8, overflow: 'auto'}} src={logo} alt="Logo" className="photo"/>
                 <Divider />
-                <Paper style={{maxHeight: 200, overflow: 'auto'}}>
 
                 <List>
-                    {a.map((text, index) => (
-                        <ListItem button key={text}>
+                    {['Home', 'Search', 'Your Library'].map((text, index) => (
+                        <ListItem style={{height: 35}} button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
-                </Paper>
-
-
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
+                <Typography style={{paddingLeft:18, paddingTop:18}} paragraph> PLAYLISTS </Typography>
+                <List style={{marginTop:-20}}>
+                    {['Create Playlist', 'Liked Songs'].map((text, index) => (
+                        <ListItem  style={{height: 35}} button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
+
+                    <Paper style={{height:145,maxHeight: 200, overflow: 'auto'}}>
+
+                        <List >
+                            {a.map((text, index) => (
+                                <ListItem style={{height: 35}} button key={text}>
+                                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItem>
+                            ))}
+                        </List>
+                    </Paper>
+
+
+
+
+                <Divider />
+                <List>
+                    {['Install App'].map((text, index) => (
+                        <ListItem style={{height: 35}} button key={text}>
+                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                            <ListItemText primary={text} />
+                        </ListItem>
+                    ))}
+                </List>
+                </Box>
             </Drawer>
             <main className={classes.content}>
-                <div className={classes.toolbar} />
+                <div className={classes.root} />
                 <Typography paragraph>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
                     ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
