@@ -12,6 +12,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { Paper } from '@material-ui/core';
 
 const drawerWidth = 240;
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PermanentDrawerLeft() {
     const classes = useStyles();
-
+    const a = [1,2,3,4,5,6,7,8,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
     return (
         <div className={classes.root}>
             <CssBaseline />
@@ -61,17 +62,23 @@ export default function PermanentDrawerLeft() {
                     paper: classes.drawerPaper,
                 }}
                 anchor="left"
+                style={{maxHeight: 200, overflow: 'auto'}}
             >
                 <div className={classes.toolbar} />
                 <Divider />
+                <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+
                 <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                    {a.map((text, index) => (
                         <ListItem button key={text}>
                             <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
                 </List>
+                </Paper>
+
+
                 <Divider />
                 <List>
                     {['All mail', 'Trash', 'Spam'].map((text, index) => (

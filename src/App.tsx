@@ -10,6 +10,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import {green} from "@material-ui/core/colors";
 import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
+import PermanentDrawerLeft from "./components/PermanentDrawerLeft";
 const SpotifyApiContext = require('react-spotify-api');
 
 
@@ -47,7 +48,7 @@ function App() {
                     <IconButton aria-label="primary">
                         <PlayCircleOutlineIcon style={{ color: green[500], fontSize: 40 }} />
                     </IconButton>
-                    <PersistentDrawerLeft/>
+                    <PermanentDrawerLeft/>
                     <CenteredGrid/>
                 </ThemeProvider>
 

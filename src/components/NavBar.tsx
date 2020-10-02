@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme: Theme) =>
         appBar: {
             top: 'auto',
             bottom: 0,
+            zIndex: 1400,
         },
         grow: {
             flexGrow: 1,
@@ -124,7 +125,7 @@ export default function BottomAppBar() {
                     ))}
                 </List>
             </Paper>
-            <AppBar position="fixed" color="primary" className={classes.appBar}>
+            <AppBar position="fixed"  color="primary" className={classes.appBar}>
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="open drawer">
                         <MenuIcon />
