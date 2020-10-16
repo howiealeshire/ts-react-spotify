@@ -41,15 +41,9 @@ function App() {
                 <ThemeProvider theme={theme}>
                     <NavBar />
 
-                    <Button variant="contained" color="primary" onClick=
-                        {() => { alert('clicked') }}>
-                        Click me</Button>
-                    <CenteredGrid/>
-                    <IconButton aria-label="primary">
-                        <PlayCircleOutlineIcon style={{ color: green[500], fontSize: 40 }} />
-                    </IconButton>
+
                     <PermanentDrawerLeft/>
-                    <CenteredGrid/>
+
                 </ThemeProvider>
 
 

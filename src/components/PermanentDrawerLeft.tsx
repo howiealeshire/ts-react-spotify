@@ -12,8 +12,15 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import {Box, Paper} from '@material-ui/core';
+import {Avatar, Box, IconButton, Paper} from '@material-ui/core';
 import logo from '../images/1280px-Spotify_logo_with_text.svg.png'
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -36,7 +43,13 @@ const useStyles = makeStyles((theme: Theme) =>
         button: {
             height: 12,
         },
-
+        formControl: {
+            margin: theme.spacing(1),
+            minWidth: 120,
+        },
+        selectEmpty: {
+            marginTop: theme.spacing(2),
+        },
         // necessary for content to be below app bar
         //toolbar: theme.mixins.toolbar,
         content: {
@@ -50,15 +63,45 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function PermanentDrawerLeft() {
     const classes = useStyles();
     const a = [1,2,3,4,5,6,7,8,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+    const [age, setAge] = React.useState('');
+
+    const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+        setAge(event.target.value as string);
+    };
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
-                    <Typography variant="h6" noWrap>
-                        Permanent drawer
-                    </Typography>
+                    <Box display="flex">
+
+
+                    <IconButton> <ArrowBackIosIcon></ArrowBackIosIcon> </IconButton>
+                    <IconButton> <ArrowForwardIosIcon></ArrowForwardIosIcon> </IconButton>
+
+
+                    </Box>
+                    <Box style={{marginLeft:"auto"}} display="flex" justifyContent="flex-end" alignItems="center">
+                        <Avatar>H</Avatar>
+                        <FormControl className={classes.formControl}>
+                            <InputLabel id="demo-simple-select-label">User Id</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={age}
+                                onChange={handleChange}
+                            >
+                                <MenuItem value={10}>Account</MenuItem>
+                                <MenuItem value={20}>Profile</MenuItem>
+                                <MenuItem value={30}>Logout</MenuItem>
+                            </Select>
+
+                        </FormControl>
+
+                    </Box>
+
                 </Toolbar>
+
             </AppBar>
             <Drawer
                 className={classes.drawer}
@@ -81,7 +124,9 @@ export default function PermanentDrawerLeft() {
                             <ListItemText primary={text} />
                         </ListItem>
                     ))}
+
                 </List>
+
                 <Typography style={{paddingLeft:18, paddingTop:18}} paragraph> PLAYLISTS </Typography>
                 <List style={{marginTop:-20}}>
                     {['Create Playlist', 'Liked Songs'].map((text, index) => (
@@ -120,29 +165,6 @@ export default function PermanentDrawerLeft() {
             </Drawer>
             <main className={classes.content}>
                 <div className={classes.root} />
-                <Typography paragraph>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent elementum
-                    facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in hendrerit
-                    gravida rutrum quisque non tellus. Convallis convallis tellus id interdum velit laoreet id
-                    donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-                    adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra nibh cras.
-                    Metus vulputate eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo quis
-                    imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus at augue. At augue eget
-                    arcu dictum varius duis at consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem
-                    donec massa sapien faucibus et molestie ac.
-                </Typography>
-                <Typography paragraph>
-                    Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper eget nulla
-                    facilisi etiam dignissim diam. Pulvinar elementum integer enim neque volutpat ac
-                    tincidunt. Ornare suspendisse sed nisi lacus sed viverra tellus. Purus sit amet volutpat
-                    consequat mauris. Elementum eu facilisis sed odio morbi. Euismod lacinia at quis risus sed
-                    vulputate odio. Morbi tincidunt ornare massa eget egestas purus viverra accumsan in. In
-                    hendrerit gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem et
-                    tortor. Habitant morbi tristique senectus et. Adipiscing elit duis tristique sollicitudin
-                    nibh sit. Ornare aenean euismod elementum nisi quis eleifend. Commodo viverra maecenas
-                    accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-                </Typography>
             </main>
         </div>
     );

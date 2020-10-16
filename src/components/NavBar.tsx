@@ -17,7 +17,12 @@ import MenuIcon from '@material-ui/icons/Menu';
 import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import MoreIcon from '@material-ui/icons/MoreVert';
-
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import {Box, Grid, Slide, Slider} from "@material-ui/core";
 const messages = [
     {
         id: 1,
@@ -81,11 +86,24 @@ const useStyles = makeStyles((theme: Theme) =>
         subheader: {
             backgroundColor: theme.palette.background.paper,
         },
+        formControl: {
+            margin: theme.spacing(1),
+            minWidth: 120,
+        },
+        selectEmpty: {
+            marginTop: theme.spacing(2),
+        },
         appBar: {
             top: 'auto',
             bottom: 0,
             zIndex: 1400,
         },
+        appBarCenter: {
+            alignItems: 'center',
+            justifyContent: 'center',
+            margin: '0 auto',
+        },
+
         grow: {
             flexGrow: 1,
         },
@@ -102,44 +120,152 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function BottomAppBar() {
     const classes = useStyles();
+    const [value, setValue] = React.useState<number>(30);
 
+    const handleChange = (event: any, newValue: number | number[]) => {
+        setValue(newValue as number);
+    };
     return (
         <React.Fragment>
             <CssBaseline />
-            <Paper square className={classes.paper}>
-                <Typography className={classes.text} variant="h5" gutterBottom>
-                    Inbox
-                </Typography>
-                <List className={classes.list}>
-                    {messages.map(({ id, primary, secondary, person }) => (
-                        <React.Fragment key={id}>
-                            {id === 1 && <ListSubheader className={classes.subheader}>Today</ListSubheader>}
-                            {id === 3 && <ListSubheader className={classes.subheader}>Yesterday</ListSubheader>}
-                            <ListItem button>
-                                <ListItemAvatar>
-                                    <Avatar alt="Profile Picture" src={person} />
-                                </ListItemAvatar>
-                                <ListItemText primary={primary} secondary={secondary} />
-                            </ListItem>
-                        </React.Fragment>
-                    ))}
-                </List>
-            </Paper>
+
             <AppBar position="fixed"  color="primary" className={classes.appBar}>
+
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="open drawer">
-                        <MenuIcon />
-                    </IconButton>
-                    <Fab color="secondary" aria-label="add" className={classes.fabButton}>
-                        <AddIcon />
-                    </Fab>
-                    <div className={classes.grow} />
-                    <IconButton color="inherit">
-                        <SearchIcon />
-                    </IconButton>
-                    <IconButton edge="end" color="inherit">
-                        <MoreIcon />
-                    </IconButton>
+                    <Grid container xs={12}  direction="row"
+                          justify="space-between"
+                          alignItems="center"
+
+                    >
+
+                        {/*
+                        <Grid item xs={12} style={{marginLeft:"auto"}} display="flex"  className={classes.appBarCenter} flexGrow={1}>
+                        */}
+                            <Grid container item alignItems="center"
+                                    xs={1} spacing={3} sm={3}>
+                                <Grid item xs={2}>
+                                    <Avatar variant="square">
+                                        N
+                                    </Avatar>
+                                </Grid>
+
+                                <Grid item xs={3}>
+                                    <Typography noWrap>Song Title</Typography>
+                                    <Typography noWrap>Artist Name</Typography>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton  color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton edge="end" color="inherit">
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
+                            <Grid container item xs={4} spacing={1} sm={3} justify="space-evenly" >
+                                <Grid item xs={1}>
+                                    <IconButton edge="start" color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton  color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton  color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton  color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton edge="end" color="inherit">
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Grid>
+
+                            </Grid>
+                            <Grid container item xs={1} spacing={5} sm={3} justify="flex-end" alignItems="center">
+                                <Grid item xs={1}>
+                                    <IconButton edge="start" color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs={1}>
+                                    <IconButton  color="inherit">
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Grid>
+
+                                <Grid item xs={1}>
+                                    <IconButton color="inherit">
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Grid>
+                                <Grid item xs justify="center" >
+                                    <Slider style={{color:"white"}} value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+                                </Grid>
+
+                        </Grid>
+
+                        
+
+
+
+
+
+                        {/*
+                         <Box style={{marginLeft:"auto 0"}} display="flex" justifyContent="center">
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                        <IconButton edge="start" color="inherit" aria-label="open drawer">
+                            <MenuIcon />
+                        </IconButton>
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                        <IconButton edge="end" color="inherit" aria-label="open drawer">
+                            <MenuIcon />
+                        </IconButton>
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                    </Box>
+
+                    <Box style={{marginLeft:"auto"}} display="flex" justifyContent="flex-end">
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                        <IconButton edge="start" color="inherit" aria-label="open drawer">
+                            <MenuIcon />
+                        </IconButton>
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                        <IconButton edge="end" color="inherit" aria-label="open drawer">
+                            <MenuIcon />
+                        </IconButton>
+                        <IconButton  color="inherit">
+                            <SearchIcon />
+                        </IconButton>
+                    </Box>
+
+                        */}
+
+
+                    </Grid>
+
+
+
+
                 </Toolbar>
             </AppBar>
         </React.Fragment>
