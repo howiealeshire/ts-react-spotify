@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import {green} from "@material-ui/core/colors";
 import PersistentDrawerLeft from "./components/PersistentDrawerLeft";
 import PermanentDrawerLeft from "./components/PermanentDrawerLeft";
+
 const SpotifyApiContext = require('react-spotify-api');
 
 
@@ -40,7 +41,7 @@ function App() {
             <div>
                 <ThemeProvider theme={theme}>
                     <NavBar />
-
+                    <Button>hi</Button>
 
                     <PermanentDrawerLeft/>
 
