@@ -37,6 +37,7 @@ import {
     Slider
 } from "@material-ui/core";
 import CenteredGrid from "./CenteredGrid";
+import MusicCardRow from "./MusicCardRow";
 const messages = [
     {
         id: 1,
@@ -128,33 +129,16 @@ export default function BottomAppBar() {
 
         return (
             <React.Fragment>
-                <Grid item xs={1}>
                     <MusicCard></MusicCard>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
-                <Grid item xs={1}>
-                    <Paper className={classes.paper}>item</Paper>
-                </Grid>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+                    <MusicCard></MusicCard>
+
             </React.Fragment>
         );
     }
@@ -165,46 +149,16 @@ export default function BottomAppBar() {
             <CssBaseline />
             <Grid container spacing={2} className={classes.typography}>
 
-                <Grid container item xs={6} spacing={1} justify="flex-start" className={classes.link}>
-                    <Typography variant="h5" component="h5">
-                        <Link href="#" onClick={preventDefault}>
-                            Link
-                        </Link>
-                    </Typography>
-                </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
-                </Grid>
-                <Grid container item xs={6} spacing={1} justify="flex-start">
-                    <Typography variant="h5" component="h5">
-                        <Link href="#" onClick={preventDefault}>
-                            Link
-                        </Link>
-                    </Typography>
-                </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
-                </Grid>
-                <Grid container item xs={6} spacing={1} justify="flex-start">
-                    <Typography variant="h5" component="h5">
-                        <Link href="#" onClick={preventDefault}>
-                            Link
-                        </Link>
-                    </Typography>
-                </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
-                </Grid>
-                <Grid container item xs={6} spacing={1} justify="flex-start">
-                    <Typography variant="h5" component="h5">
-                        <Link href="#" onClick={preventDefault}>
-                            Link
-                        </Link>
-                    </Typography>
-                </Grid>
-                <Grid container item xs={12} spacing={3}>
-                    <FormRow />
-                </Grid>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+
+
             </Grid>
             <List className={classes.list}>
                 {messages.map(({ id, primary, secondary, person }) => (
