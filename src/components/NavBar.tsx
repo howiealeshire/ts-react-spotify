@@ -147,7 +147,11 @@ export default function BottomAppBar() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <Grid container spacing={2} className={classes.typography}>
+            <div style={{   overflowX: 'hidden'}}>
+            <Grid container spacing={2} className={classes.typography} style={{
+                width: '100%',
+
+            }}>
 
                 <MusicCardRow></MusicCardRow>
                 <MusicCardRow></MusicCardRow>
@@ -160,27 +164,17 @@ export default function BottomAppBar() {
 
 
             </Grid>
-            <List className={classes.list}>
-                {messages.map(({ id, primary, secondary, person }) => (
-                    <React.Fragment key={id}>
-                        {id === 1 && <ListSubheader className={classes.subheader}>Today</ListSubheader>}
-                        {id === 3 && <ListSubheader className={classes.subheader}>Yesterday</ListSubheader>}
-                        <ListItem button>
-                            <ListItemAvatar>
-                                <Avatar alt="Profile Picture" src={person} />
-                            </ListItemAvatar>
-                            <ListItemText primary={primary} secondary={secondary} />
-                        </ListItem>
-                    </React.Fragment>
-                ))}
-            </List>
+            </div>
+
             <AppBar position="fixed"  color="primary" className={classes.appBar}>
 
                 <Toolbar>
                     <Grid container xs={12}  direction="row" spacing={6}
                           justify="space-between"
                           alignItems="center"
-
+                          style={{
+                              width: '100%',
+                          }}
                     >
 
                         {/*
@@ -260,7 +254,6 @@ export default function BottomAppBar() {
 
                         </Grid>
                     </Grid>
-
 
 
 

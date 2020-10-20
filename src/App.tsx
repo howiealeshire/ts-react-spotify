@@ -38,7 +38,7 @@ function App() {
     return (
         <React.Fragment>
             <CssBaseline />
-            <div>
+
                 <ThemeProvider theme={theme}>
                     <NavBar />
                     <Button>hi</Button>
@@ -46,10 +46,6 @@ function App() {
                     <PermanentDrawerLeft/>
 
                 </ThemeProvider>
-
-
-            </div>
-
         </React.Fragment>
 
     );

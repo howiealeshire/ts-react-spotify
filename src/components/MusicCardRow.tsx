@@ -57,6 +57,11 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingTop: 110,
             paddingBottom:121,
         },
+        endLink: {
+            paddingTop: 110,
+            paddingBottom:121,
+            marginRight:655,
+        },
         typography: {
             marginBottom: theme.spacing(2),
             marginLeft: 250,
@@ -83,7 +88,14 @@ export default function MusicCardRow() {
             <Grid container item xs={6} spacing={1} justify="flex-start" className={classes.link}>
                 <Typography variant="h5" component="h5">
                     <Link href="#" onClick={preventDefault}>
-                        Link
+                        Link2
+                    </Link>
+                </Typography>
+            </Grid>
+            <Grid container item xs={6} spacing={1} justify="flex-end" className={classes.link}>
+                <Typography variant="h6" component="h6">
+                    <Link href="#" onClick={preventDefault} className={classes.endLink}>
+                        SEE ALL
                     </Link>
                 </Typography>
             </Grid>
