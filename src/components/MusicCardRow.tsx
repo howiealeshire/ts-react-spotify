@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) =>
         endLink: {
             paddingTop: 110,
             paddingBottom:121,
-            marginRight:655,
+            marginRight:590,
         },
         typography: {
             marginBottom: theme.spacing(2),

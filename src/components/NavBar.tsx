@@ -38,6 +38,7 @@ import {
 } from "@material-ui/core";
 import CenteredGrid from "./CenteredGrid";
 import MusicCardRow from "./MusicCardRow";
+import {PlayArrow} from "@material-ui/icons";
 const messages = [
     {
         id: 1,
@@ -216,7 +217,7 @@ export default function BottomAppBar() {
                                 </Grid>
                                 <Grid item xs={1}>
                                     <IconButton  color="inherit">
-                                        <SearchIcon />
+                                        <PlayArrow />
                                     </IconButton>
                                 </Grid>
                                 <Grid item xs={1}>
@@ -229,8 +230,14 @@ export default function BottomAppBar() {
                                         <MenuIcon />
                                     </IconButton>
                                 </Grid>
+                                <Grid container item xs={1} spacing={1} sm={3} justify="center" style = {{minWidth: "290px"}}>
+                                    <Grid item xs justify="flex-start"  >
+                                        <Slider style={{color:"white", marginTop:30, marginLeft:-255}} value={value} onChange={handleChange} aria-labelledby="continuous-slider" />
+                                    </Grid>
+                                </Grid>
 
-                            </Grid>
+
+                                </Grid>
                             <Grid container item xs={1} spacing={5} sm={3} justify="flex-end" alignItems="center">
                                 <Grid item xs={1}>
                                     <IconButton edge="start" color="inherit">
