@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import NavBar from './components/NavBar'
+import FetchSpotifyData from './components/FetchSpotifyData'
+
 import CenteredGrid from "./components/CenteredGrid";
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import Button from '@material-ui/core/Button';
@@ -38,7 +40,7 @@ function App() {
     return (
         <React.Fragment>
             <CssBaseline />
-
+                <FetchSpotifyData></FetchSpotifyData>
                 <ThemeProvider theme={theme}>
                     <NavBar />
                     <Button>hi</Button>

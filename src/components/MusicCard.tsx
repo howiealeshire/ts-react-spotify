@@ -10,7 +10,7 @@ import {
     PopperPlacementType
 } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -58,7 +58,6 @@ export default function MusicCard() {
     const [open, setOpen] = React.useState(false);
     const [placement, setPlacement] = React.useState<PopperPlacementType>();
 
-
     return (
         <React.Fragment>
             <Grid item xs={1}>
@@ -85,7 +84,7 @@ export default function MusicCard() {
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h6" component="h6">
-                                Lizard
+                                Lizard2
                             </Typography>
                             <Typography variant="body1" color="textSecondary" component="p" style={{marginTop: -9}}>
                                 test

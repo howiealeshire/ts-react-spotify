@@ -162,6 +162,19 @@ export default function BottomAppBar() {
                 <MusicCardRow></MusicCardRow>
                 <MusicCardRow></MusicCardRow>
                 <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+                <MusicCardRow></MusicCardRow>
+
 
 
             </Grid>
